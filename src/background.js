@@ -87,3 +87,13 @@ if (isDevelopment) {
     })
   }
 }
+
+process.cwd()
+
+app.on('architect-api-request', async () => {
+    try {
+        "Something";
+    } catch (e) {
+        console.error('Hey some error')
+    }
+})

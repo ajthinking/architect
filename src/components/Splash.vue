@@ -19,11 +19,16 @@
 
 <script>
 
+const { ipcMain } = require('electron')
+
 export default {
     methods: {
         openExisting()
         {
-            //
+            ipcMain.on('architect-api-request', (event, arg) => {
+                console.log(event, arg)
+            })
+
             this.$store.commit('openProject', '/Users/anders/Code/host1')
             this.$store.commit('navigate', 'AppSummary')
         }
