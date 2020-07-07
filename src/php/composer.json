@@ -1,0 +1,19 @@
+{
+    "name": "ajthinking/architect-php",
+    "description": "The php part of the Architect app",
+    "authors": [
+        {
+            "name": "Anders Jurisoo",
+            "email": "jurisoo@hotmail.com"
+        }
+    ],
+    "require": {
+        "ajthinking/archetype": "@dev"
+    },
+    "repositories": {
+        "archetype": {
+            "type": "path",
+            "url": "/Users/anders/Code/host1/packages/ajthinking/archetype"
+        }
+    }
+}
