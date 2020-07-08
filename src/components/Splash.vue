@@ -25,14 +25,15 @@ export default {
             const { ipcRenderer } = require('electron')
             
             ipcRenderer.on('asynchronous-reply', (event, arg) => {
-                console.log(arg) // prints "pong"
+                console.log(arg)
+                this.$store.commit('openProject', '/Users/anders/Code/host1')
+                this.$store.commit('navigate', 'AppSummary')                
             })
             
             ipcRenderer.send('asynchronous-message', 'ping')
             
 
-            // this.$store.commit('openProject', '/Users/anders/Code/host1')
-            // this.$store.commit('navigate', 'AppSummary')
+
         }
     }
 }

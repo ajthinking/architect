@@ -16,4 +16,4 @@ $kernel->bootstrap();
 $app->register(\Archetype\ServiceProvider::class);
 
 // Output JSON to be consumed by our electron app
-echo app('LaravelFile')::models()->get()->map->className();
+echo app('LaravelFile')::models()->get()->map->className()->values();

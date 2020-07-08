@@ -103,8 +103,8 @@ ipcMain.on('asynchronous-message', (event, arg) => {
             event.reply('asynchronous-reply', stderr)
             return;
         }
-
-        event.reply('asynchronous-reply', stdout)
+        
+        event.reply('asynchronous-reply', JSON.parse(stdout))
     });
 
     
