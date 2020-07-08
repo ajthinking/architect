@@ -1,9 +1,11 @@
 'use strict'
 
-import { app, protocol, dialog, BrowserWindow } from 'electron'
+import { app, protocol, dialog, BrowserWindow, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
+const { ipcMain } = require('electron')
+const { exec } = require("child_process");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,6 +27,31 @@ function createWindow() {
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION
     }
   })
+
+  var menu = Menu.buildFromTemplate([
+        {
+            label: 'Menu',
+            submenu: [
+                {
+                    label:'Open',
+                    click() {
+                        //app.emit('select-current-project')
+                        //ipcRenderer.send('select-current-project')
+
+                    },
+                    accelerator: 'CmdOrCtrl+O'
+                },
+                {
+                    label:'Exit',
+                    click() { 
+                        app.quit() 
+                    }
+                },                
+            ]
+        }
+    ])
+
+    Menu.setApplicationMenu(menu);   
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -88,10 +115,6 @@ if (isDevelopment) {
   }
 }
 
-
-const { ipcMain } = require('electron')
-const { exec } = require("child_process");
-
 ipcMain.on('select-current-project', async (event, arg) => {
   const result = await dialog.showOpenDialog(win, {
     properties: ['openDirectory']
@@ -104,14 +127,14 @@ ipcMain.on('select-current-project', async (event, arg) => {
 ipcMain.on('get-schema', (event, path) => {    
     exec(`php /Users/anders/Code/architect/src/php/architect.php ${path}`, (error, stdout, stderr) => {
         if (error) {
-            event.reply('schema-updated', error.message)
+            event.reply('schema-failed', error.message)
             return;
         }
         if (stderr) {
-            event.reply('schema-updated', stderr)
+            event.reply('schema-failed', stderr)
             return;
         }
-        
+
         event.reply('schema-updated', JSON.parse(stdout))
         return;
     });
