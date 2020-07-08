@@ -4,11 +4,19 @@ namespace Architect\CLI;
 
 use LaravelFile;
 
-class GetSchema
+class GetAppSummary
 {
     public function __invoke($data)
     {
-        return LaravelFile::models()->get()->map->className()->values();
+        // php artisan --version
+        // succesful bootstrap
+        // app name
+        // app url
+        // database (migrated)
+        // git branch
+        // etc...
+
+        return;
     }
 
     public function schema()
