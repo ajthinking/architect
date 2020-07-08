@@ -2,15 +2,13 @@
 
 namespace Architect;
 
+use Illuminate\Support\Str;
+
 class Architect
 {
-    public function __construct()
+    public static function api($endpoint, $data)
     {
-
-    }
-
-    public static function make()
-    {
-        return new static;
+        $endpoint = '\\Architect\\CLI\\' . Str::studly($endpoint);
+        return json_encode($endpoint($data));
     }
 }

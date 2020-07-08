@@ -32,6 +32,6 @@ $endpoint = $argv[2];
 // Get request data
 $data = $argv[3];
 
-echo app('Architect')::api($endpoint, $data)->json()
+echo app('Architect')::api($endpoint, $data)
 
 */
