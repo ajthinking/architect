@@ -3,7 +3,7 @@
 // Require the Architect and other dependencies
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-// Get target path
+// Get request target
 $projectPath = $argv[1];
 
 // Bootstrap target
@@ -17,3 +17,21 @@ $app->register(\Archetype\ServiceProvider::class);
 
 // Output JSON to be consumed by our electron app
 echo app('LaravelFile')::models()->get()->map->className()->values();
+
+
+
+
+/*
+
+// Get request target
+$projectPath = $argv[1];
+
+// Get request type
+$endpoint = $argv[2];
+
+// Get request data
+$data = $argv[3];
+
+echo app('Architect')::api($endpoint, $data)->json()
+
+*/

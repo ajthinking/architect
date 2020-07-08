@@ -119,7 +119,6 @@ ipcMain.on('select-current-project', async (event, arg) => {
   const result = await dialog.showOpenDialog(win, {
     properties: ['openDirectory']
   })
-  console.log('directories selected', result.filePaths)
 
   event.reply('current-project-updated', result.filePaths[0])
 })
