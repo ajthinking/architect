@@ -125,7 +125,7 @@ ipcMain.on('select-current-project', async (event, arg) => {
 })
 
 ipcMain.on('get-schema', (event, path) => {    
-    exec(`php /Users/anders/Code/architect/src/php/architect.php ${path}`, (error, stdout, stderr) => {
+    exec(`php /Users/anders/Code/architect/src/php/console/architect.php ${path}`, (error, stdout, stderr) => {
         if (error) {
             event.reply('schema-failed', error.message)
             return;
@@ -134,6 +134,8 @@ ipcMain.on('get-schema', (event, path) => {
             event.reply('schema-failed', stderr)
             return;
         }
+
+        console.log(stdout)
 
         event.reply('schema-updated', JSON.parse(stdout))
         return;

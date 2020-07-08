@@ -2,6 +2,7 @@
 node_modules
 /dist
 notes
+/src/php/vendor/
 
 # local env files
 .env.local

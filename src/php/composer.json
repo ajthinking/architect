@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "ajthinking/archetype": "@dev"
+        "ajthinking/archetype": "@dev",
+        "laravel/framework": "^7.19"
     },
     "repositories": {
         "archetype": {
