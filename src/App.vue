@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="flex h-screen bg-gray-800">
-        <Splash v-if="!this.$store.state.currentProject"></Splash>
+        <Splash v-if="this.$store.state.page==='Splash'"></Splash>
         <Workbench v-else></Workbench>
     </div>            
 </template>

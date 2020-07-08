@@ -5,16 +5,20 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        currentProject: null,
-        currentPage: 'Splash'
+        project: null,
+        page: 'Splash',
+        schema: 'Splash',
     },
     mutations: {
-        openProject(state, path) {
-            state.currentProject = path
+        setProject(state, path) {
+            state.project = path
         },      
-        navigate(state, page) {
-            state.currentPage = page
-        }
+        setPage(state, page) {
+            state.page = page
+        },
+        setSchema(state, schema) {
+            state.schema = schema
+        },        
     },
     actions: {
     },

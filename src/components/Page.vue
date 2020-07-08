@@ -1,6 +1,6 @@
 <template>
     <div class="w-full bg-gray-800">
-        <component :is="this.$store.state.currentPage"></component>
+        <component :is="this.$store.state.page"></component>
     </div>
 </template>
 
@@ -10,7 +10,7 @@ import AppSummary from './AppSummary.vue'
 
 export default {
     components: {
-        AppSummary
+        AppSummary,
     }
 }
 </script>

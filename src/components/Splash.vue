@@ -22,18 +22,20 @@
 export default {
     methods: {
         openExisting() {
+
             const { ipcRenderer } = require('electron')
-            
-            ipcRenderer.on('asynchronous-reply', (event, arg) => {
-                console.log(arg)
-                this.$store.commit('openProject', '/Users/anders/Code/host1')
-                this.$store.commit('navigate', 'AppSummary')                
+
+            ipcRenderer.on('current-project-updated', (event, path) => {
+                this.$store.commit('setProject', path)
+                ipcRenderer.send('get-schema', path)
+            })
+
+            ipcRenderer.on('schema-updated', (event, schema) => {
+                this.$store.commit('setSchema', schema)
+                this.$store.commit('setPage', 'AppSummary')                
             })
             
-            ipcRenderer.send('asynchronous-message', 'ping')
-            
-
-
+            ipcRenderer.send('select-current-project', 'foo')
         }
     }
 }

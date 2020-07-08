@@ -92,27 +92,27 @@ if (isDevelopment) {
 const { ipcMain } = require('electron')
 const { exec } = require("child_process");
 
-ipcMain.on('asynchronous-message', (event, arg) => {
-    const r = dialog.showOpenDialog(win, {
-      properties: ['openDirectory'],
-    })
+ipcMain.on('select-current-project', async (event, arg) => {
+  const result = await dialog.showOpenDialog(win, {
+    properties: ['openDirectory']
+  })
+  console.log('directories selected', result.filePaths)
 
-    console.log(r)
-    
-    
-    exec("php /Users/anders/Code/architect/src/php/architect.php /Users/anders/Code/hostq", (error, stdout, stderr) => {
+  event.reply('current-project-updated', result.filePaths[0])
+})
+
+ipcMain.on('get-schema', (event, path) => {    
+    exec(`php /Users/anders/Code/architect/src/php/architect.php ${path}`, (error, stdout, stderr) => {
         if (error) {
-            event.reply('asynchronous-reply', error.message)
+            event.reply('schema-updated', error.message)
             return;
         }
         if (stderr) {
-            event.reply('asynchronous-reply', stderr)
+            event.reply('schema-updated', stderr)
             return;
         }
         
-        event.reply('asynchronous-reply', JSON.parse(stdout))
-
+        event.reply('schema-updated', JSON.parse(stdout))
+        return;
     });
-
-    
 })
