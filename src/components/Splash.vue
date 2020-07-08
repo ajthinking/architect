@@ -19,18 +19,20 @@
 
 <script>
 
-const { ipcMain } = require('electron')
-
 export default {
     methods: {
-        openExisting()
-        {
-            ipcMain.on('architect-api-request', (event, arg) => {
-                console.log(event, arg)
+        openExisting() {
+            const { ipcRenderer } = require('electron')
+            
+            ipcRenderer.on('asynchronous-reply', (event, arg) => {
+                console.log(arg) // prints "pong"
             })
+            
+            ipcRenderer.send('asynchronous-message', 'ping')
+            
 
-            this.$store.commit('openProject', '/Users/anders/Code/host1')
-            this.$store.commit('navigate', 'AppSummary')
+            // this.$store.commit('openProject', '/Users/anders/Code/host1')
+            // this.$store.commit('navigate', 'AppSummary')
         }
     }
 }

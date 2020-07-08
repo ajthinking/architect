@@ -88,12 +88,24 @@ if (isDevelopment) {
   }
 }
 
-process.cwd()
 
-app.on('architect-api-request', async () => {
-    try {
-        "Something";
-    } catch (e) {
-        console.error('Hey some error')
-    }
+const { ipcMain } = require('electron')
+const { exec } = require("child_process");
+
+ipcMain.on('asynchronous-message', (event, arg) => {
+
+    exec("php /Users/anders/Code/architect/src/php/architect.php /Users/anders/Code/hostq", (error, stdout, stderr) => {
+        if (error) {
+            event.reply('asynchronous-reply', error.message)
+            return;
+        }
+        if (stderr) {
+            event.reply('asynchronous-reply', stderr)
+            return;
+        }
+
+        event.reply('asynchronous-reply', stdout)
+    });
+
+    
 })
