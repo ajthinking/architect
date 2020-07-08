@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, dialog, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -93,7 +93,13 @@ const { ipcMain } = require('electron')
 const { exec } = require("child_process");
 
 ipcMain.on('asynchronous-message', (event, arg) => {
+    const r = dialog.showOpenDialog(win, {
+      properties: ['openDirectory'],
+    })
 
+    console.log(r)
+    
+    
     exec("php /Users/anders/Code/architect/src/php/architect.php /Users/anders/Code/hostq", (error, stdout, stderr) => {
         if (error) {
             event.reply('asynchronous-reply', error.message)
@@ -105,6 +111,7 @@ ipcMain.on('asynchronous-message', (event, arg) => {
         }
         
         event.reply('asynchronous-reply', JSON.parse(stdout))
+
     });
 
     
