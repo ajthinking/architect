@@ -149,7 +149,8 @@ ipcMain.on('architect-api-request', (event, request) => {
     let data = JSON.stringify(
         request.data ? request.data : {}
     )
-    let signature = `${phpBinary} ${architect}  ${target} ${endpoint} ${data}`
+    let signature = `${phpBinary} ${architect} ${target} ${endpoint} ${data}`
+    
     exec(signature, (error, stdout, stderr) => {
         if (error) {
             event.reply('architect-api-request-failed', error.message)

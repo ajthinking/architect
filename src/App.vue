@@ -1,25 +1,20 @@
 <template>
     <div id="app" class="flex h-screen bg-gray-800">
-        <Splash v-if="this.$store.state.page==='Splash'"></Splash>
-        <Workbench v-else></Workbench>
+        <Sidebar></Sidebar>
+        <Page></Page>        
     </div>            
 </template>
 
 <script>
-import Splash from './components/Splash.vue'
-import Workbench from './components/Workbench.vue'
+
+import Sidebar from './components/Sidebar.vue'
+import Page from './components/Page.vue'
 
 export default {
-  name: 'App',
-  components: {
-    Splash,
-    Workbench
-  },
-  data: function() {
-      return {
-          //'currentProject': null
-      }
-  }
-
+    name: 'App',
+    components: {
+        Sidebar,
+        Page
+    },
 }
 </script>

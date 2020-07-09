@@ -6,8 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         project: null,
-        page: 'Splash',
-        schema: 'Splash',
+        page: 'AppSummary',
+        app: null,
     },
     mutations: {
         setProject(state, path) {
@@ -16,8 +16,8 @@ export default new Vuex.Store({
         setPage(state, page) {
             state.page = page
         },
-        setSchema(state, schema) {
-            state.schema = schema
+        setApp(state, app) {
+            state.app = app
         },        
     },
     actions: {

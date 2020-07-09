@@ -40,20 +40,7 @@ export default {
                     target: path,
                     endpoint: 'get-app-summary'
                 })
-            })
-
-            // MOVE THIS TO SOME STORE COMMON AREA :D
-
-            ipcRenderer.on('architect-api-request-successful', (event, schema) => {
-                alert("HEY A SUCCESFUL API REQUEST!")
-                console.log(schema);
-                //this.$store.commit('setSchema', schema)
-                //this.$store.commit('setPage', 'AppSummary')                
-            })
-
-            // ipcRenderer.on('schema-failed', (event, message) => {
-            //     this.message = message                
-            // })            
+            })           
             
             ipcRenderer.send('select-current-project')
         }

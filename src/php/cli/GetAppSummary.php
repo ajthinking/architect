@@ -29,10 +29,12 @@ class GetAppSummary
         // etc...
 
         return [
-            'version' => \Illuminate\Foundation\Application::VERSION,
-            'name' => config('app.name'),
-            'url' => config('app.url'),
-            'database' => config('database.default'),
+            'app' => [
+                'version' => \Illuminate\Foundation\Application::VERSION,
+                'name' => config('app.name'),
+                'url' => config('app.url'),
+                'database' => config('database.default'),
+            ]
         ];
     }
 }
