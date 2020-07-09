@@ -2,8 +2,6 @@
 
 namespace Architect\CLI;
 
-use LaravelFile;
-
 class GetAppSummary
 {
     public $data;
@@ -36,7 +34,7 @@ class GetAppSummary
                 'url' => config('app.url'),
                 'database' => config('database.default'),
                 'schema' => [
-                    'models' => LaravelFile::models()->get()->map->className()->values()
+                    'models' => app('LaravelFile')::models()->get()->map->className()->values()
                 ]
             ]
         ];

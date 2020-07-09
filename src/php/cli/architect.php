@@ -36,7 +36,7 @@ try {
     $bootstrapper = $projectPath . '/bootstrap/app.php';
 
     if (!file_exists($autoloader)) {
-        throw new Exception ('Could not find autoload.php');
+        throw new Exception ('Could not find autoloader at ' . $autoloader);
     }
 
     if (!file_exists($bootstrapper)) {
@@ -61,7 +61,6 @@ try {
     exit;
 }
 
-
 /*
 |--------------------------------------------------------------------------
 | Perform Request
@@ -73,6 +72,7 @@ try {
 */
 
 try {
+    $app->register(\Archetype\ServiceProvider::class);
     $app->register(\Architect\ServiceProvider::class);
 } catch(\Throwable $e) {
     echo json_encode((object) [

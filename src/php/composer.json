@@ -9,12 +9,12 @@
     ],
     "autoload": {
         "psr-4": {
+            "Archetype\\": "./vendor/ajthinking/archetype/src/",
             "Architect\\": "./"
         }
     },    
     "require": {
-        "ajthinking/archetype": "@dev",
-        "laravel/framework": "^7.19"
+        "ajthinking/archetype": "@dev"
     },
     "repositories": {
         "archetype": {

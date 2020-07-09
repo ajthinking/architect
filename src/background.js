@@ -21,6 +21,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    title: 'PipeDream::architect',
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -28,30 +29,30 @@ function createWindow() {
     }
   })
 
-  var menu = Menu.buildFromTemplate([
-        {
-            label: 'Menu',
-            submenu: [
-                {
-                    label:'Open',
-                    click() {
-                        //app.emit('select-current-project')
-                        //ipcRenderer.send('select-current-project')
+//   var menu = Menu.buildFromTemplate([
+//         {
+//             label: 'Menu',
+//             submenu: [
+//                 {
+//                     label:'Open',
+//                     click() {
+//                         //app.emit('select-current-project')
+//                         //ipcRenderer.send('select-current-project')
 
-                    },
-                    accelerator: 'CmdOrCtrl+O'
-                },
-                {
-                    label:'Exit',
-                    click() { 
-                        app.quit() 
-                    }
-                },                
-            ]
-        }
-    ])
+//                     },
+//                     accelerator: 'CmdOrCtrl+O'
+//                 },
+//                 {
+//                     label:'Exit',
+//                     click() { 
+//                         app.quit() 
+//                     }
+//                 },                
+//             ]
+//         }
+//     ])
 
-    Menu.setApplicationMenu(menu);   
+//     Menu.setApplicationMenu(menu);   
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
@@ -114,6 +115,29 @@ if (isDevelopment) {
     })
   }
 }
+
+ipcMain.on('create-new-project', async (event, arg) => {
+    let codeHome = '/Users/anders/Code/'
+    let name = 'test-project-' + Math.random().toString(36).substring(7); 
+  
+    exec(
+        'laravel new ' + name,
+        { cwd: codeHome },
+        (error, stdout, stderr) => {
+        if (error) {
+            event.reply('create-new-project-failed', error.message)
+            return;
+        }
+        if (stderr) {
+            event.reply('create-new-project-failed', stderr)
+            return;
+        }
+
+        event.reply('current-project-updated', codeHome + name)
+
+        return;
+    });
+  })
 
 ipcMain.on('select-current-project', async (event, arg) => {
   const result = await dialog.showOpenDialog(win, {

@@ -3,6 +3,9 @@
         <div v-if="message" class="flex flex-col w-full items-center justify-center mb-12">
             <div class="text-white text-2xl ">I could not bootstrap that 😥</div>
         </div>
+        <div v-if="creating" class="flex flex-col w-full items-center justify-center mb-12 text-white text-xl">
+            <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+        </div>        
         <div class="flex font-bold text-white mb-6">
             <div @click="openExisting" class="flex items-center px-6 py-2 rounded mx-2 text-lg hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-folder-open my-3"></i>
@@ -25,7 +28,8 @@
 export default {
     data: function() {
         return {
-            message: ''
+            message: '',
+            creating: false,
         }
     },
     methods: {
@@ -35,7 +39,9 @@ export default {
         },
 
         createNew() {
-            alert("Cant do that yet!")
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('create-new-project')
+            this.creating = true
         }        
     }
 }
