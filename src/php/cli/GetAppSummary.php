@@ -18,14 +18,6 @@ class GetAppSummary
 
     public function response()
     {
-        // php artisan --version
-        // succesful bootstrap
-        // app name
-        // app url
-        // database (migrated)
-        // git branch
-        // etc...
-
         return [
             'status' => 200,
             'app' => [
