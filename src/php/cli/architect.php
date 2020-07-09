@@ -27,7 +27,7 @@ $data = json_decode($argv[3] ?? '{}');
 |--------------------------------------------------------------------------
 |
 | Bootstrap target project
-| Let's hope it works!
+| Let's see if it works
 |
 */
 
