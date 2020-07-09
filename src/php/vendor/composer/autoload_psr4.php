@@ -52,6 +52,7 @@ return array(
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
+    'Architect\\' => array($baseDir . '/'),
     'Archetype\\Tests\\' => array($vendorDir . '/ajthinking/archetype/tests'),
     'Archetype\\' => array($vendorDir . '/ajthinking/archetype/src'),
 );

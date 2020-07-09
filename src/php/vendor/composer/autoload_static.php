@@ -114,6 +114,7 @@ class ComposerStaticIniteac86d3e585674a5eee9ac9ba539f9fd
         ),
         'A' => 
         array (
+            'Architect\\' => 10,
             'Archetype\\Tests\\' => 16,
             'Archetype\\' => 10,
         ),
@@ -303,6 +304,10 @@ class ComposerStaticIniteac86d3e585674a5eee9ac9ba539f9fd
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'Architect\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
         ),
         'Archetype\\Tests\\' => 
         array (
