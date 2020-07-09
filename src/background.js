@@ -123,20 +123,44 @@ ipcMain.on('select-current-project', async (event, arg) => {
   event.reply('current-project-updated', result.filePaths[0])
 })
 
-ipcMain.on('get-schema', (event, path) => {    
-    exec(`php /Users/anders/Code/architect/src/php/cli/architect.php ${path}`, (error, stdout, stderr) => {
+// ipcMain.on('get-schema', (event, path) => {    
+//     exec(`php /Users/anders/Code/architect/src/php/cli/architect.php ${path}` , (error, stdout, stderr) => {
+//         if (error) {
+//             event.reply('schema-failed', error.message)
+//             return;
+//         }
+//         if (stderr) {
+//             event.reply('schema-failed', stderr)
+//             return;
+//         }
+
+//         console.log(stdout)
+
+//         event.reply('schema-updated', JSON.parse(stdout))
+//         return;
+//     });
+// })
+
+ipcMain.on('architect-api-request', (event, request) => {
+    let phpBinary = 'php'
+    let architect = '/Users/anders/Code/architect/src/php/cli/architect.php'
+    let target = request.target
+    let endpoint = request.endpoint
+    let data = JSON.stringify(
+        request.data ? request.data : {}
+    )
+    let signature = `${phpBinary} ${architect}  ${target} ${endpoint} ${data}`
+    exec(signature, (error, stdout, stderr) => {
         if (error) {
-            event.reply('schema-failed', error.message)
+            event.reply('architect-api-request-failed', error.message)
             return;
         }
         if (stderr) {
-            event.reply('schema-failed', stderr)
+            event.reply('architect-api-request-failed', stderr)
             return;
         }
 
-        console.log(stdout)
-
-        event.reply('schema-updated', JSON.parse(stdout))
+        event.reply('architect-api-request-successful', JSON.parse(stdout))
         return;
     });
 })

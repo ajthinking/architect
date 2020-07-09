@@ -35,17 +35,25 @@ export default {
 
             ipcRenderer.on('current-project-updated', (event, path) => {
                 this.$store.commit('setProject', path)
-                ipcRenderer.send('get-schema', path)
+                
+                ipcRenderer.send('architect-api-request', {
+                    target: path,
+                    endpoint: 'get-app-summary'
+                })
             })
 
-            ipcRenderer.on('schema-updated', (event, schema) => {
-                this.$store.commit('setSchema', schema)
-                this.$store.commit('setPage', 'AppSummary')                
+            // MOVE THIS TO SOME STORE COMMON AREA :D
+
+            ipcRenderer.on('architect-api-request-successful', (event, schema) => {
+                alert("HEY A SUCCESFUL API REQUEST!")
+                console.log(schema);
+                //this.$store.commit('setSchema', schema)
+                //this.$store.commit('setPage', 'AppSummary')                
             })
 
-            ipcRenderer.on('schema-failed', (event, message) => {
-                this.message = message                
-            })            
+            // ipcRenderer.on('schema-failed', (event, message) => {
+            //     this.message = message                
+            // })            
             
             ipcRenderer.send('select-current-project')
         }
