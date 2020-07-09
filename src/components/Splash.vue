@@ -8,7 +8,7 @@
                 <i class="fas fa-folder-open my-3"></i>
                 <div class="ml-2">Open existing</div>
             </div>            
-            <div class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
+            <div @click="createNew" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-plus my-3"></i>
                 <div class="ml-2">New project</div>
             </div>
@@ -30,20 +30,13 @@ export default {
     },
     methods: {
         openExisting() {
-
             const { ipcRenderer } = require('electron')
-
-            ipcRenderer.on('current-project-updated', (event, path) => {
-                this.$store.commit('setProject', path)
-                
-                ipcRenderer.send('architect-api-request', {
-                    target: path,
-                    endpoint: 'get-app-summary'
-                })
-            })           
-            
             ipcRenderer.send('select-current-project')
-        }
+        },
+
+        createNew() {
+            alert("Cant do that yet!")
+        }        
     }
 }
 </script>

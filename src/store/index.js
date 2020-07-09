@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         project: null,
-        page: 'AppSummary',
+        page: 'Splash',
         app: null,
     },
     mutations: {

@@ -32,13 +32,25 @@ $data = json_decode($argv[3] ?? '{}');
 */
 
 try {
-    require_once($projectPath . '/vendor/autoload.php');
+    $autoloader = $projectPath . '/vendor/autoload.php';
+    $bootstrapper = $projectPath . '/bootstrap/app.php';
 
-    $app = require_once($projectPath . '/bootstrap/app.php');
+    if (!file_exists($autoloader)) {
+        throw new Exception ('Could not find autoload.php');
+    }
+
+    if (!file_exists($bootstrapper)) {
+        throw new Exception ('Could not find bootstrap/app.php');
+    }    
+
+    require_once($autoloader);
+
+    $app = require_once($bootstrapper);
     
     $kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
     
     $kernel->bootstrap();
+    
 } catch(\Throwable $e) {
     echo json_encode((object) [
         'status' => 500,
@@ -46,7 +58,7 @@ try {
         'error' => $e->getMessage(),
     ]);
 
-    exit(1);
+    exit;
 }
 
 
@@ -69,7 +81,7 @@ try {
         'error' => $e->getMessage(),
     ]);
 
-    exit(1);
+    exit;
 }
 
 try {
@@ -81,7 +93,7 @@ try {
         'error' => $e->getMessage(),
     ]);
 
-    exit(1);
+    exit;
 }
 
 /*

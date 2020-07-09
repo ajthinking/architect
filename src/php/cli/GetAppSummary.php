@@ -29,6 +29,7 @@ class GetAppSummary
         // etc...
 
         return [
+            'status' => 200,
             'app' => [
                 'version' => \Illuminate\Foundation\Application::VERSION,
                 'name' => config('app.name'),
