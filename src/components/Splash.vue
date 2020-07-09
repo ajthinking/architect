@@ -9,16 +9,19 @@
         <div class="flex font-bold text-white mb-6">
             <div @click="openExisting" class="flex items-center px-6 py-2 rounded mx-2 text-lg hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-folder-open my-3"></i>
-                <div class="ml-2">Open existing</div>
+                <div class="ml-2">Browse existing</div>
             </div>            
             <div @click="createNew" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-plus my-3"></i>
                 <div class="ml-2">New project</div>
             </div>
         </div>
-        <div class="flex items-center w-full border-t text-gray-400 text-xs bg-gray-800">
+        <div class="flex flex-col p-2 w-full border-t text-gray-400 text-sm bg-gray-800">
             <!--<i class="fas fa-cog my-3"></i>
             <div class="ml-2">Architect v0.13.37</div>-->
+            <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'host1'">host1</div>
+            <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'hostq'">hostq</div>
+            <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'pimpmydrawing'">pimpmydrawing</div>
         </div>
     </div>
 </template>
@@ -42,7 +45,12 @@ export default {
             const { ipcRenderer } = require('electron')
             ipcRenderer.send('create-new-project')
             this.creating = true
-        }        
+        },
+        
+        openRecent(event) {
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('select-recent-project', '/Users/anders/Code/' + event.srcElement.id)
+        }
     }
 }
 </script>

@@ -147,6 +147,10 @@ ipcMain.on('select-current-project', async (event, arg) => {
   if(!result.canceled) event.reply('current-project-updated', result.filePaths[0])
 })
 
+ipcMain.on('select-recent-project', async (event, path) => {
+    event.reply('current-project-updated', path)
+})
+
 ipcMain.on('architect-api-request', (event, request) => {
     let phpBinary = 'php'
     let architect = '/Users/anders/Code/architect/src/php/cli/architect.php'
@@ -171,3 +175,34 @@ ipcMain.on('architect-api-request', (event, request) => {
         return;
     });
 })
+
+const fs = require('fs')
+
+var dir = '/Users/anders/Code/';
+
+function loadRecentFiles() {
+    fs.readdir(dir, function(err, files){
+        files = files.map(function (fileName) {
+            return {
+            name: fileName,
+            time: fs.statSync(dir + '/' + fileName).mtime.getTime()
+            };
+        })
+        .sort(function (a, b) {
+            return b.time - a.time; })
+        .map(function (v) {
+            return v.name;
+        })
+        .slice(0, 10);
+    
+        win.webContents.send('recent-projects-loaded', files);
+    });
+    
+}
+
+
+
+
+
+
+

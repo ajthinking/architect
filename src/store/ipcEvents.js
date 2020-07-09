@@ -30,3 +30,8 @@ ipcRenderer.on('architect-api-request-failed', (event, data) => {
     alert(data);
     console.log(data);
 })
+
+ipcRenderer.on('recent-projects-loaded', (event, data) => {
+    alert(data);
+    console.log(data);
+})
