@@ -1,29 +1,29 @@
 <template>
-    <div class="flex flex-col items-center px-4 bg-gray-700 min-h-full text-white text-sm">
-        <div v-if="this.$store.state.app" @click="setPage('AppSummary')" class="my-2 cursor-pointer"><i class="fas fa-home"></i></div>
-        <div v-if="this.$store.state.app" @click="refresh" class="my-2 cursor-pointer"><i class="fas fa-sync-alt"></i></div>
-        <div v-if="this.$store.state.app" @click="setPage('AppSchema')" class="my-2 cursor-pointer"><i class="fas fa-grip-vertical"></i></div>
-        <div v-if="this.$store.state.app" @click="setPage('AppSchema')" class="my-2 cursor-pointer"><i class="fas fa-project-diagram"></i></div>
-        <div v-if="this.$store.state.app" @click="create" class="my-2  cursor-pointer"><i class="fas fa-plug"></i></div>
-        <div v-if="this.$store.state.app" @click="create" class="my-2  cursor-pointer"><i class="fas fa-wave-square"></i></div>
-        <div v-if="this.$store.state.app" @click="create" class="my-2  cursor-pointer"><i class="fas fa-check"></i></div>
-        <!--<i class="fas fa-columns my-3 text-orange-300 hover:text-yellow-600"></i>
-        <i class="fas fa-code-branch my-3 text-orange-300 hover:text-yellow-600"></i>
-        <i class="fas fa-sync my-3 text-orange-300 hover:text-yellow-600"></i>
-        <i class="far fa-comment my-3 text-orange-300 hover:text-yellow-600"></i>
-        <i class="fas fa-wrench my-3 text-orange-300 hover:text-yellow-600"></i>
-        <i class="fab fa-twitter my-3 text-orange-300 hover:text-yellow-600"></i>-->
+    <div class="flex flex-col items-center bg-gray-700 text-gray-400 text-sm">
+        <div v-if="this.$store.state.app">
+            <div :class="buttonStyle()" @click="setPage('AppSummary')" ><i class="fas fa-home"></i></div>
+            <div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>
+            <div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-grip-vertical"></i></div>
+            <div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-project-diagram"></i></div>
+            <div :class="buttonStyle()" @click="create" ><i class="fas fa-plug"></i></div>
+            <div :class="buttonStyle()" @click="create" ><i class="fas fa-wave-square"></i></div>
+            <div :class="buttonStyle()" @click="create" ><i class="fas fa-check"></i></div>
+        </div>
 
-
-        <div @click="openExisting" class="my-2 cursor-pointer"><i class="fas fa-folder-open"></i></div>
-        <div @click="create" class="my-2  cursor-pointer"><i class="fas fa-plus"></i></div>
-        
+        <div>
+            <div :class="buttonStyle()" @click="openExisting" ><i class="fas fa-folder-open"></i></div>
+            <div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     methods: {
+        buttonStyle() {
+            return 'flex justify-center w-12 py-2 cursor-pointer hover:text-white hover:shadow-xl'
+        },
+
         refresh() {
             alert("Not implemented!")
         },
@@ -43,3 +43,15 @@ export default {
     }
 }
 </script>
+
+
+<!--
+        SYMBOLS
+        <i class="fas fa-columns></i>
+        <i class="fas fa-code-branch></i>
+        <i class="fas fa-sync></i>
+        <i class="far fa-comment></i>
+        <i class="fas fa-wrench></i>
+        <i class="fab fa-twitter></i>-->
+
+-->

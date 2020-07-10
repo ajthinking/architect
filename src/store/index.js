@@ -8,6 +8,7 @@ export default new Vuex.Store({
         project: null,
         page: 'Splash',
         app: null,
+        entity: null,
     },
     mutations: {
         setProject(state, path) {
@@ -18,7 +19,10 @@ export default new Vuex.Store({
         },
         setApp(state, app) {
             state.app = app
-        },        
+        },
+        setEntity(state, entity) {
+            state.entity = entity
+        },                
     },
     actions: {
     },

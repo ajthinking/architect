@@ -5,9 +5,10 @@
                 class="w-1/4 rounded bg-grey-light w-64 p-2 mx-2 my-2 bg-gray-700"
             >
                 <div class="flex justify-between py-1">
-                    <h3 class="text-sm text-white font-bold">{{ model }}</h3>
-                    <svg class="h-4 fill-current text-gray-300 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z"></path></svg>
+                    <h3 :id="model" @click="clickEntity" class="text-sm text-white font-bold cursor-pointer">{{ model }}</h3>
+                    <span class="text-white cursor-pointer text-xs mr-1"><i class="fas fa-chevron-down"></i></span>
                 </div>
+                <div class="bg-red-500 h-64">asdad</div>
                 <!--
                 <div class="text-xs mt-2">
                     <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
@@ -33,8 +34,14 @@
 
 <script>
 export default {
+    data() {
+        return {}
+    },
     methods: {
-        //
+        clickEntity(e) {
+            this.$store.commit('setEntity', e.target.id)
+            this.$store.commit('setPage', 'Entity')
+        }
     }
 }
 </script>
