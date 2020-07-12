@@ -1,5 +1,7 @@
 # architect
 
+<img src="icon.png">
+
 ## Project setup
 ```
 yarn install
