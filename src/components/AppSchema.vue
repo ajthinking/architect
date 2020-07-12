@@ -8,24 +8,7 @@
                     <h3 :id="model" @click="clickEntity" class="text-sm text-white font-bold cursor-pointer">{{ model }}</h3>
                     <span class="text-white cursor-pointer text-xs mr-1"><i class="fas fa-chevron-down"></i></span>
                 </div>
-                <div class="bg-red-500 h-64">asdad</div>
-                <!--
-                <div class="text-xs mt-2">
-                    <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
-                        name
-                    </div>
-                    
-                    <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
-                        email
-                    </div>
-
-                    <div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter">
-                        nickname
-                    </div>                    
-                    
-                    <p class="mt-3 text-gray-400 cursor-pointer">Add a card...</p>
-                </div>
-                -->
+                <div class="bg-gray-600 h-12">-</div>
             </div>            
         </div>
        
