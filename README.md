@@ -1,31 +1,19 @@
-# architect
+## `php::architect()`
+<img width="300px" src="icon.png">
 
-<img src="icon.png">
+A workbench for the Laravel framework
 
-## Project setup
-```
-yarn install
-```
+### Development installation
 
-### Compiles and hot-reloads for development
 ```
+git clone git@github.com:ajthinking/architect.git
+cd architect
+yarn
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Build
+Run `yarn build` then find installer in `/dist_electron`
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### License
+This is a proprietary software with copyright retained.
