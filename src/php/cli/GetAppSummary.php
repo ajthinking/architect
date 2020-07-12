@@ -25,9 +25,10 @@ class GetAppSummary
                 'name' => config('app.name'),
                 'url' => config('app.url'),
                 'database' => config('database.default'),
-                'schema' => [
-                    'models' => app('LaravelFile')::models()->get()->map->className()->values()
-                ]
+                // 'schema' => [
+                //     'models' => app('LaravelFile')::models()->get()->map->className()->values()
+                // ],
+                'schema' => app('LaravelSchema')::get()
             ]
         ];
     }

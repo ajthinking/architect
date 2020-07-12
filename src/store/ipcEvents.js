@@ -22,6 +22,7 @@ ipcRenderer.on('architect-api-request-successful', (event, data) => {
     // Update to app?
     if(data.app) {
         store.commit('setApp', data.app)
+        console.log(data)
     }
 })
 
