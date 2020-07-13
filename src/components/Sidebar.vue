@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center bg-gray-700 text-gray-400 text-sm">
+    <div class="flex flex-col min-h-screen items-center bg-gray-700 text-gray-400 text-sm">
         <div v-if="this.$store.state.app">
             <div :class="buttonStyle()" @click="setPage('AppSummary')" ><i class="fas fa-home"></i></div>
             <div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>

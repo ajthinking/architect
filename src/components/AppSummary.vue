@@ -12,6 +12,10 @@
                 <div class="text-xs text-white px-3 py-1 rounded bg-gray-700">
                     laravel/framework {{ this.$store.state.app.version }}
                 </div>
+            </div>
+
+            <div>
+                <json-tree :raw="JSON.stringify(this.$store.state.app)"></json-tree>
             </div>           
     </div>
     <div v-else class="flex items-center justify-center text-5xl text-white">
@@ -20,9 +24,15 @@
 </template>
 
 <script>
+
+import JsonTree from 'vue-json-tree'
+
 export default {
     methods: {
         //
+    },
+    components: {
+        JsonTree
     }
 }
 </script>
