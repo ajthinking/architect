@@ -28,7 +28,7 @@ class GetAppSummary
                 // 'schema' => [
                 //     'models' => app('LaravelFile')::models()->get()->map->className()->values()
                 // ],
-                'schema' => app('LaravelSchema')::get()
+                'schema' => app('Archetype\Schema\LaravelSchema')::get()
             ]
         ];
     }
