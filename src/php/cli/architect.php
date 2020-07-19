@@ -63,6 +63,29 @@ try {
 
 /*
 |--------------------------------------------------------------------------
+| Validate target
+|--------------------------------------------------------------------------
+|
+| Ensure Laravel version > 7.x
+|
+*/
+try {
+    $version = \Illuminate\Foundation\Application::VERSION;
+    if(!preg_match('/7.*/', $version)) {
+        throw new Exception ('Version ' . $version . ' is not supported. Please update your application and try again.');
+    }
+} catch(\Throwable $e) {
+    echo json_encode((object) [
+        'status' => 500,
+        'message' => $e->getMessage(),
+        'error' => $e,
+    ]);
+
+    exit;
+}
+
+/*
+|--------------------------------------------------------------------------
 | Perform Request
 |--------------------------------------------------------------------------
 |
