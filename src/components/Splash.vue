@@ -22,6 +22,7 @@
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'host1'">host1</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'hostq'">hostq</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'pimpmydrawing'">pimpmydrawing</div>
+            <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'pimp2'">pimp2</div>
         </div>
     </div>
 </template>
