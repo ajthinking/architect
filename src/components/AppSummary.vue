@@ -1,6 +1,6 @@
 <template>
     <div v-if="this.$store.state.app" class="flex flex-col w-full justify-center text-gray-400">
-           <div class="container mx-auto p-8">
+           <div class="container mx-auto p-8 pt-2">
                 <div class="flex flex-row flex-wrap -mx-2">
                     <div class="w-full lg:w-full md:h-auto mb-4 px-2">
                         <div class="block w-full h-full bg-gray-700 p-4">
@@ -15,17 +15,17 @@
                             </div>
                             <hr class="my-2 bg-red-500 text-red-500">
                             <div class="block w-full px-4 mb-1 pt-4 text-xs">
-                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span> Bootstrap successful
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Bootstrap successful
                             </div>
                             <div class="block w-full px-4 mb-1 text-xs">
-                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span> Strategy: Database
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Using strategy: {{ this.$store.state.app.schema.strategy_used}}
                             </div>
                             
                             <div class="block w-full px-4 mb-1 text-xs hover:underline hover:cursor-pointer">
-                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>12 models
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Found {{ this.$store.state.app.schema.entities.length }} models
                             </div>                            
                             <div class="block w-full px-4 mb-1 text-xs">
-                                <span class="text-yellow-400 mr-2"><i class="fas fas fa-exclamation-triangle"></i></span> APP_NAME has not been set
+                                <span class="text-yellow-400 mr-2"><i class="fas fas fa-exclamation-triangle"></i></span>APP_NAME has not been set
                             </div>    
                             <div class="block w-full px-4 mb-1 text-xs">
                                 <span class="text-red-400 mr-2"><i class="fas fa-times"></i></span>4 unparsable files
