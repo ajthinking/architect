@@ -112,8 +112,8 @@ try {
 } catch(\Throwable $e) {
     echo json_encode((object) [
         'status' => 500,
-        'message' => 'Error while hitting Architect API endpoint',
-        'error' => $e->getMessage(),
+        'message' => 'Error while hitting Architect API endpoint:' . $e->getMessage(),
+        'error' => $e->getTraceAsString(),
     ]);
 
     exit;
