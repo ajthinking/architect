@@ -15,8 +15,11 @@ ipcRenderer.on('architect-api-request-successful', (event, data) => {
 
     // Even though the command executed without crashing there is some kind of failure
     if(data.status != 200) {
-        alert(data);
+        alert(data.message);
         console.log(data);
+        // Redirect to splash        
+        store.commit('setProject', null)
+        store.commit('setPage', 'Splash')        
     }
 
     // Update to app?
@@ -28,8 +31,11 @@ ipcRenderer.on('architect-api-request-successful', (event, data) => {
 
 ipcRenderer.on('architect-api-request-failed', (event, data) => {
     // The command crashed
-    alert(data);
+    alert("Archetype php chrashed.");
     console.log(data);
+    // Redirect to splash
+    store.commit('setProject', null)
+    store.commit('setPage', 'Splash')    
 })
 
 ipcRenderer.on('recent-projects-loaded', (event, data) => {
