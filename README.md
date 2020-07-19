@@ -1,6 +1,14 @@
 ## `php::architect()`
-<img width="500px" src="https://user-images.githubusercontent.com/3457668/87247913-e1a2dd00-c456-11ea-85f1-949d5926d02d.png">
+
 A workbench for the Laravel framework
+
+<img width="500px" src="https://user-images.githubusercontent.com/3457668/87870975-152cbc80-c9ad-11ea-9f77-21ea75418375.png">
+<img width="500px" src="https://user-images.githubusercontent.com/3457668/87870982-1d84f780-c9ad-11ea-9b87-f244f7981ad4.png">
+
+### Features
+* Open any Laravel app
+* Get a quick overview
+* View models and attributes
 
 ### Development installation
 
