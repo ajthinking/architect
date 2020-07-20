@@ -21,6 +21,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.1",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "core-js": "^3.6.5",
+    "electron-json-storage": "^4.2.0",
     "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
     "vue-json-tree": "^0.4.3",

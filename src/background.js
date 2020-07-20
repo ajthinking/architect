@@ -6,6 +6,7 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const { ipcMain } = require('electron')
 const { exec } = require("child_process");
+const storage = require('electron-json-storage');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -151,6 +152,23 @@ ipcMain.on('select-recent-project', async (event, path) => {
     event.reply('current-project-updated', path)
 })
 
+ipcMain.on('add-recent-project', (event, path) => {
+    storage.get('recent-projects', function(error, data) {
+        if (error) throw error;
+        console.log(data)
+    })    
+    storage.get('recent-projects', function(error, data) {
+        if (error) throw error;
+        data = Array.isArray(data) ? data : []
+        storage.set('recent-projects', [
+            ...data,
+            path
+        ]), function(error, data) {
+            if (error) throw error;
+        }     
+    });
+})
+
 ipcMain.on('architect-api-request', (event, request) => {
     let phpBinary = 'php'
     let architect = '/Users/anders/Code/architect/src/php/cli/architect.php'
@@ -176,33 +194,27 @@ ipcMain.on('architect-api-request', (event, request) => {
     });
 })
 
-const fs = require('fs')
+// const fs = require('fs')
 
-var dir = '/Users/anders/Code/';
+// var dir = '/Users/anders/Code/';
 
-function loadRecentFiles() {
-    fs.readdir(dir, function(err, files){
-        files = files.map(function (fileName) {
-            return {
-            name: fileName,
-            time: fs.statSync(dir + '/' + fileName).mtime.getTime()
-            };
-        })
-        .sort(function (a, b) {
-            return b.time - a.time; })
-        .map(function (v) {
-            return v.name;
-        })
-        .slice(0, 10);
+// function loadRecentFiles() {
+//     fs.readdir(dir, function(err, files){
+//         files = files.map(function (fileName) {
+//             return {
+//             name: fileName,
+//             time: fs.statSync(dir + '/' + fileName).mtime.getTime()
+//             };
+//         })
+//         .sort(function (a, b) {
+//             return b.time - a.time; })
+//         .map(function (v) {
+//             return v.name;
+//         })
+//         .slice(0, 10);
     
-        win.webContents.send('recent-projects-loaded', files);
-    });
+//         win.webContents.send('recent-projects-loaded', files);
+//     });
     
-}
-
-
-
-
-
-
+// }
 

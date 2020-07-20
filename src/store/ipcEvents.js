@@ -9,6 +9,8 @@ ipcRenderer.on('current-project-updated', (event, path) => {
         target: path,
         endpoint: 'get-app-summary'
     })
+
+    ipcRenderer.send('add-recent-project', path)    
 })
 
 ipcRenderer.on('architect-api-request-successful', (event, data) => {
