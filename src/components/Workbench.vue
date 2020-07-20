@@ -7,13 +7,7 @@
 
 <script>
 
-import Sidebar from './Sidebar.vue'
-import Page from './Page.vue'
-
 export default {
-    components: {
-        Sidebar,
-        Page
-    }
+    //
 }
 </script>
