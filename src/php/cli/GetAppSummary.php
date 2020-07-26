@@ -28,8 +28,23 @@ class GetAppSummary
                 // 'schema' => [
                 //     'models' => app('LaravelFile')::models()->get()->map->className()->values()
                 // ],
-                'schema' => app('Archetype\Schema\LaravelSchema')::get()
+                'schema' => app('Archetype\Schema\LaravelSchema')::get(),
+                'env' => [
+                    'DB_CONNECTION' => env('DB_CONNECTION'),
+                    'DB_DATABASE' => env('DB_DATABASE'),
+                ],
+                'can_connect_to_database' => $this->canConnectToDatabase()
             ]
         ];
+    }
+
+    protected function canConnectToDatabase()
+    {
+        try {
+            \DB::connection()->getPdo();
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }        
     }
 }

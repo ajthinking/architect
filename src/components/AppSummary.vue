@@ -13,19 +13,38 @@
                             <div class="font-bold text-xs">
                                 laravel/framework {{ this.$store.state.app.version }}
                             </div>
+
+                            <div class="font-bold text-xs">
+                                <span>{{ this.$store.state.app.env.DB_CONNECTION }}</span>
+                                <span v-if="this.$store.state.app.env.DB_DATABASE">
+                                    {{ this.$store.state.app.env.DB_DATABASE }}
+                                </span>
+                            </div>
+
                             <hr class="my-2 bg-red-500 text-red-500">
                             <div class="block w-full px-4 mb-1 pt-4 text-xs">
                                 <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Bootstrap successful
                             </div>
-                            <div class="block w-full px-4 mb-1 text-xs">
+                            <!--<div class="block w-full px-4 mb-1 text-xs">
                                 <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Using strategy: {{ this.$store.state.app.schema.strategy_used}}
+                            </div>-->
+                            <div class="block w-full px-4 mb-1 text-xs">
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>
+                                <span class="font-bold">laravel/framework</span> version {{ this.$store.state.app.version }}
+                            </div>                            
+                            <div v-if="this.$store.state.app.can_connect_to_database" class="block w-full px-4 mb-1 text-xs">
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Database connection
                             </div>
+
+                            <div v-else class="block w-full px-4 mb-1 text-xs">
+                                <span class="text-red-400 mr-2"><i class="fas fa-times"></i></span>Could not connect to database
+                            </div>                                                        
                             
                             <div class="block w-full px-4 mb-1 text-xs hover:underline hover:cursor-pointer">
-                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Found {{ this.$store.state.app.schema.entities.length }} models
+                                <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Found {{ this.$store.state.app.schema.entities.length }} models using strategy {{ this.$store.state.app.schema.strategy_used }}
                             </div>                            
                             <div class="block w-full px-4 mb-1 text-xs">
-                                <span class="text-yellow-400 mr-2"><i class="fas fas fa-exclamation-triangle"></i></span>APP_NAME has not been set
+                                <span class="text-yellow-400 mr-2"><i class="fas fas fa-exclamation-triangle"></i></span>APP_NAME has default value
                             </div>    
                             <div class="block w-full px-4 mb-1 text-xs">
                                 <span class="text-red-400 mr-2"><i class="fas fa-times"></i></span>4 unparsable files
@@ -56,6 +75,6 @@
 export default {
     methods: {
         //
-    }
+    },
 }
 </script>

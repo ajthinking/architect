@@ -16,16 +16,15 @@
                 <div class="ml-2">New project</div>
             </div>
         </div>
-        <div class="flex flex-col p-2 w-full border-t text-gray-400 text-sm bg-gray-800">
-            <!--<i class="fas fa-cog my-3"></i>
-            <div class="ml-2">Architect v0.13.37</div>-->
+        <!--<div class="flex flex-col p-2 w-full border-t text-gray-400 text-sm bg-gray-800">
+            <i class="fas fa-cog my-3"></i>
+            <div class="ml-2">Architect v0.13.37</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'car-pool'">car-pool</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'host1'">host1</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'hostq'">hostq</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'pimp2'">pimp2</div>
             <div class="cursor-pointer hover:underline" @click="openRecent" v-bind:id="'pimpmydrawing'">pimpmydrawing</div>
-            
-        </div>
+        </div>-->
     </div>
 </template>
 
