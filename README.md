@@ -19,7 +19,7 @@ Find the latest release [here](https://github.com/ajthinking/architect/releases)
 git clone git@github.com:ajthinking/architect.git
 cd architect
 yarn
-yarn serve
+yarn electron:serve
 ```
 
 ### License
