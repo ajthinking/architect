@@ -7,8 +7,11 @@
             <ul class="">
                 <li v-for="column in entity.columns" v-bind:key="column.name"
                     tabindex="0"
+                    class="flex"
                 >
-                    {{ column.name }}
+                    <div tabindex="0" class="mr-2">{{ column.name }}</div>
+                    <div tabindex="0" class="mr-2">string</div>
+                    <div v-tabgroup="'columnProperties'" class="mr-2">uniqeu</div>
                 </li>
             </ul>                    
         </div>
