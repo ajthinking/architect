@@ -27,7 +27,9 @@ export default {
         focusChanged (event) {
             const el = event.target
             // do something with the element.
-            console.log(el._uid)
+            console.log(
+                el
+            )
         },
         enterClicked(){
             if(this.isFocused) alert("HEY!!");
