@@ -7,6 +7,12 @@ namespace Composer\Autoload;
 class ComposerStaticInitb862cc61820b9f3bf9551b5083824212
 {
     public static $prefixLengthsPsr4 = array (
+        'D' => 
+        array (
+            'Doctrine\\DBAL\\' => 14,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\' => 16,
+        ),
         'A' => 
         array (
             'Architect\\' => 10,
@@ -16,6 +22,18 @@ class ComposerStaticInitb862cc61820b9f3bf9551b5083824212
     );
 
     public static $prefixDirsPsr4 = array (
+        'Doctrine\\DBAL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL',
+        ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+        ),
         'Architect\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',
@@ -27,6 +45,7 @@ class ComposerStaticInitb862cc61820b9f3bf9551b5083824212
         'Archetype\\' => 
         array (
             0 => __DIR__ . '/..' . '/ajthinking/archetype/src',
+            1 => __DIR__ . '/..' . '/ajthinking/archetype/src',
         ),
     );
 

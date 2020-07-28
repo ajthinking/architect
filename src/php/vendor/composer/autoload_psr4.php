@@ -6,7 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib/Doctrine/DBAL'),
+    'Doctrine\\Common\\Cache\\' => array($vendorDir . '/doctrine/cache/lib/Doctrine/Common/Cache'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/event-manager/lib/Doctrine/Common'),
     'Architect\\' => array($baseDir . '/'),
     'Archetype\\Tests\\' => array($vendorDir . '/ajthinking/archetype/tests'),
-    'Archetype\\' => array($vendorDir . '/ajthinking/archetype/src'),
+    'Archetype\\' => array($vendorDir . '/ajthinking/archetype/src', $vendorDir . '/ajthinking/archetype/src'),
 );
