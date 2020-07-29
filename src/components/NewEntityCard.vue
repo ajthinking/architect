@@ -5,6 +5,7 @@
                 class="text-sm text-gray-200 font-bold cursor-pointer"
                 v-text="'New model'"></h3>
             <input v-else tabindex="0" @keyup.enter="input()"
+                ref="entityName"
                 class="text-sm w-full bg-gray-300 text-gray-800 font-bold cursor-pointer">
         </div>
         <div class="bg-gray-700 text-gray-500 text-xs m-2">
@@ -27,6 +28,7 @@ export default {
     methods: {
         input() {
             this.active = !this.active
+            //this.$refs.entityName.focus();
         }
     }
 }
