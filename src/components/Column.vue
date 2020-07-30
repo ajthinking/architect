@@ -1,8 +1,8 @@
 <template>
-    <span>
+    <div class="flex">
         <div class="mr-2">{{ column.name }}</div>
         <div class="mr-2">FAKED DATATYPE</div>
-    </span>
+    </div>
 </template>
 
 <script>
