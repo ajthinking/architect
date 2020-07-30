@@ -35,7 +35,7 @@ Vue.directive('tab-group', {
       },
 
       unbind(el) {
-        el.__tabgroup_unwatch__ && el._tabgroup__unwatch__()
+        el.__tabgroup_unwatch__ && el.__tabgroup_unwatch__()
       }
           
 })

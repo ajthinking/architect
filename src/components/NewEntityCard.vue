@@ -1,5 +1,8 @@
 <template>
-    <div class="w-1/3 mx-2 my-2 bg-gray-700" @keyup.enter="enterClicked()">
+    <div 
+        v-tab-group="parentTabGroup"
+        class="w-1/3 mx-2 my-2 bg-gray-700"
+        @keyup.enter="enterClicked()">
         <div class="flex justify-between bg-gray-600 p-2">
             <h3 v-if="!active" @keyup.enter="input()"
                 class="text-sm text-gray-200 font-bold cursor-pointer"
@@ -22,7 +25,7 @@
 export default {
     data() {
         return {
-            tabgroup: 'entities',
+            parentTabGroup: 'entities',
             active: false
         }
     },
@@ -38,7 +41,7 @@ export default {
             //this.$refs.entityName.focus();
         },
         enterClicked(){
-            this.$store.commit('setTabGroup', 'haha');
+            alert("Not implemented")
         },        
     }
 }
