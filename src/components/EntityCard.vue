@@ -34,7 +34,7 @@ export default {
         },
         tabGroup()
         {
-            return this.$store.state.tabgroup === this.tabGroupId ? '0' : '-1';
+            return this.id;
         }
     },
     methods: {
