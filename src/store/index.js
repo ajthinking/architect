@@ -9,6 +9,7 @@ export default new Vuex.Store({
         page: 'Splash',
         app: null,
         entity: null,
+        tabgroup: 'entities',
     },
     mutations: {
         setProject(state, path) {
@@ -22,7 +23,10 @@ export default new Vuex.Store({
         },
         setEntity(state, entity) {
             state.entity = entity
-        },                
+        },
+        setTabGroup(state, key) {
+            state.tabgroup = key
+        },                        
     },
     actions: {
     },
