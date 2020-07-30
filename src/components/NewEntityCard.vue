@@ -1,5 +1,5 @@
 <template>
-    <div :tabindex="groupedTabIndex" class="w-1/3 mx-2 my-2 bg-gray-700" @keyup.enter="enterClicked()">
+    <div class="w-1/3 mx-2 my-2 bg-gray-700" @keyup.enter="enterClicked()">
         <div class="flex justify-between bg-gray-600 p-2">
             <h3 v-if="!active" @keyup.enter="input()"
                 class="text-sm text-gray-200 font-bold cursor-pointer"

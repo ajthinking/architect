@@ -6,9 +6,39 @@ import './store/ipcEvents'
 
 Vue.config.productionTip = false
 
-// import Splash from './components/Splash.vue'
+Vue.directive('tab-group', {
+    inserted: function (el, binding, vnode) {
+        let shouldExposeTabIndex = vnode.context.$store.state.tabgroup === binding.value
+        if(shouldExposeTabIndex) el.setAttribute('tabindex', '0')
+    },
 
-// Vue.component('Splash', Splash)
+    updated: function (el, binding, vnode) {
+        console.log("hey updated");
+        let shouldExposeTabIndex = vnode.context.$store.state.tabgroup === binding.value
+        if(shouldExposeTabIndex) el.setAttribute('tabindex', '0')
+    },
+
+
+    bind(el, binding, vnode) {
+        if (vnode.context.$store.state.tabgroup === binding.value) {
+            el.setAttribute('tabindex', '0')
+        }
+        const unwatch = store.watch(state => state.tabgroup, tabgroup => {
+          if (tabgroup !== binding.value) { 
+            el.removeAttribute('tabindex')
+          } else {
+            el.setAttribute('tabindex', '0')
+          }
+        })
+       el.__tabgroup_unwatch__ = unwatch
+
+      },
+
+      unbind(el) {
+        el.__tabgroup_unwatch__ && el._tabgroup__unwatch__()
+      }
+          
+})
 
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => {
