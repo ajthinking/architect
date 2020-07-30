@@ -4,6 +4,7 @@
         v-tab-group="parentTabGroup"
         class="w-1/3 rounded mx-2 my-2 bg-gray-700"
         @keyup.enter="enterClicked()"
+        @keyup.escape="escapeClicked()"
     >
         <div class="flex justify-between bg-gray-600 p-2">
             <h3 v-tab-group="tabGroup" ref="name" :id="entity.model" class="text-sm text-gray-200 font-bold cursor-pointer">{{ entity.model }}</h3>
@@ -47,6 +48,13 @@ export default {
             })
             
         },
+        escapeClicked(){
+            this.$store.commit('setTabGroup', this.parentTabGroup);
+            setTimeout(() => {
+                this.$refs.name.focus()
+            })
+            
+        },        
     },
     created() {
         document.addEventListener('focusin', this.focusChanged)
