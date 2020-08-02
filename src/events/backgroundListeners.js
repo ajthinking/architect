@@ -5,7 +5,7 @@ import { dialog } from 'electron'
 
 export default (win) => {
     ipcMain.on('create-new-project', async (event, arg) => {
-        let codeHome = '/Users/anders/Code/'
+        let codeHome = '/missing/path/'
         let name = 'test-project-' + Math.random().toString(36).substring(7); 
       
         exec(
@@ -27,7 +27,7 @@ export default (win) => {
         });
       })
     
-    ipcMain.on('select-current-project', async (event, arg) => {
+    ipcMain.on('open-project-browse', async (event, arg) => {
       const result = await dialog.showOpenDialog(win, {
         properties: ['openDirectory']
       })
@@ -35,14 +35,13 @@ export default (win) => {
       if(!result.canceled) event.reply('current-project-updated', result.filePaths[0])
     })
     
-    ipcMain.on('select-recent-project', async (event, path) => {
+    ipcMain.on('open-project', async (event, path) => {
         event.reply('current-project-updated', path)
     })
     
     ipcMain.on('add-recent-project', (event, path) => {
         storage.get('recent-projects', function(error, data) {
             if (error) throw error;
-            console.log(data)
         })    
         storage.get('recent-projects', function(error, data) {
             if (error) throw error;
@@ -58,7 +57,10 @@ export default (win) => {
     
     ipcMain.on('architect-api-request', (event, request) => {
         let phpBinary = 'php'
-        let architect = '/Users/anders/Code/architect/src/php/cli/architect.php'
+
+        // How to do this properly?
+        let architect = __dirname + '/../src/php/cli/architect.php'
+
         let target = request.target
         let endpoint = request.endpoint
         let data = JSON.stringify(

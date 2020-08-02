@@ -62,7 +62,7 @@ export default {
     methods: {
         openExisting() {
             const { ipcRenderer } = require('electron')
-            ipcRenderer.send('select-current-project')
+            ipcRenderer.send('open-project-browse')
         },
 
         createNew() {
@@ -71,10 +71,10 @@ export default {
             this.creating = true
         },
         
-        openRecent(event) {
-            const { ipcRenderer } = require('electron')
-            ipcRenderer.send('select-recent-project', '/Users/anders/Code/' + event.srcElement.id)
-        }
+        // openRecent(event) {
+        //     const { ipcRenderer } = require('electron')
+        //     ipcRenderer.send('open-project', '/missing/path/' + event.srcElement.id)
+        // }
     }
 }
 </script>

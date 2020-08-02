@@ -1,7 +1,5 @@
 // const fs = require('fs')
 
-// var dir = '/Users/anders/Code/';
-
 // function loadRecentFiles() {
 //     fs.readdir(dir, function(err, files){
 //         files = files.map(function (fileName) {
@@ -31,8 +29,8 @@
 //                 {
 //                     label:'Open',
 //                     click() {
-//                         //app.emit('select-current-project')
-//                         //ipcRenderer.send('select-current-project')
+//                         //app.emit('open-project-browse')
+//                         //ipcRenderer.send('open-project-browse')
 
 //                     },
 //                     accelerator: 'CmdOrCtrl+O'

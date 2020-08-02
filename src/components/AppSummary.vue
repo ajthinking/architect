@@ -43,22 +43,25 @@
                             <div class="block w-full px-4 mb-1 text-xs hover:underline hover:cursor-pointer">
                                 <span class="text-green-400 mr-2"><i class="fas fa-check"></i></span>Found {{ this.$store.state.app.schema.entities.length }} models using strategy {{ this.$store.state.app.schema.strategy_used }}
                             </div>                            
-                            <div class="block w-full px-4 mb-1 text-xs">
+                            <div v-if="this.$store.state.app.name == 'Laravel'" class="block w-full px-4 mb-1 text-xs">
                                 <span class="text-yellow-400 mr-2"><i class="fas fas fa-exclamation-triangle"></i></span>APP_NAME has default value
-                            </div>    
+                            </div>
+                            <!--    
                             <div class="block w-full px-4 mb-1 text-xs">
                                 <span class="text-red-400 mr-2"><i class="fas fa-times"></i></span>4 unparsable files
-                            </div>                                                                                                                
+                            </div>-->
                         </div>
                     </div>
                     <div class="w-full lg:w-full md:h-auto mb-4 px-2">
                         <div class="flex w-full h-full bg-gray-700 p-4">
-                            <div class="font-bold text-xs text-gray-200 border px-4 py-2 rounded mx-1">
+                            <div @click="sync" class="font-bold text-xs text-gray-200 border px-4 py-2 rounded mx-1">
                                 <span class="text-white-400 mr-2"><i class="fas fa-sync-alt"></i></span>Sync
                             </div>
+                            <!--
                             <div class="font-bold text-xs text-gray-200 border px-4 py-2 rounded  mx-1">
                                 <span class="text-white-400 mr-2"><i class="fas fa-plus"></i></span>Duplicate
                             </div>                                                                                                                                         
+                            -->
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,10 @@
 
 export default {
     methods: {
-        //
+        sync() {
+            const { ipcRenderer } = require('electron')
+            ipcRenderer.send('open-project', this.$store.state.project)
+        }
     },
 }
 </script>

@@ -12,7 +12,7 @@
 
         <div>
             <div :class="buttonStyle()" @click="openExisting" ><i class="fas fa-folder-open"></i></div>
-            <div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>
+            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>-->
         </div>
     </div>
 </template>
@@ -30,7 +30,7 @@ export default {
 
         openExisting() {
             const { ipcRenderer } = require('electron')
-            ipcRenderer.send('select-current-project')
+            ipcRenderer.send('open-project-browse')
         },
 
         setPage(page) {
