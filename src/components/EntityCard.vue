@@ -14,6 +14,11 @@
                 <li v-for="column in entity.columns" v-bind:key="column.name" class="flex">
                     <Column v-tab-group="tabGroup" :column=column></Column>
                 </li>
+
+                <li v-if="entity.columns.length == 0" class="flex">
+                    Could not retrieve columns
+                </li>                
+
             </ul>                    
         </div>
     </div>            
