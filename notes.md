@@ -1,7 +1,50 @@
-Vue.directive('tab-group', {
-  inserted: function (el) {
-    // Here I would like to insert
-  }
-})
+// const fs = require('fs')
 
-<div v-tab-group>
+// var dir = '/Users/anders/Code/';
+
+// function loadRecentFiles() {
+//     fs.readdir(dir, function(err, files){
+//         files = files.map(function (fileName) {
+//             return {
+//             name: fileName,
+//             time: fs.statSync(dir + '/' + fileName).mtime.getTime()
+//             };
+//         })
+//         .sort(function (a, b) {
+//             return b.time - a.time; })
+//         .map(function (v) {
+//             return v.name;
+//         })
+//         .slice(0, 10);
+    
+//         win.webContents.send('recent-projects-loaded', files);
+//     });
+    
+// }
+
+// MENU SKETCH
+
+//   var menu = Menu.buildFromTemplate([
+//         {
+//             label: 'Menu',
+//             submenu: [
+//                 {
+//                     label:'Open',
+//                     click() {
+//                         //app.emit('select-current-project')
+//                         //ipcRenderer.send('select-current-project')
+
+//                     },
+//                     accelerator: 'CmdOrCtrl+O'
+//                 },
+//                 {
+//                     label:'Exit',
+//                     click() { 
+//                         app.quit() 
+//                     }
+//                 },                
+//             ]
+//         }
+//     ])
+
+//     Menu.setApplicationMenu(menu);   

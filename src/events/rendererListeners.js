@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron')
-import store from './index'
+import store from '../store/index'
 
 ipcRenderer.on('current-project-updated', (event, path) => {
     store.commit('setProject', path)
