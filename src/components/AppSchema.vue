@@ -1,11 +1,10 @@
 <template>
     <div v-if="this.$store.state.app" class="flex flex-col px-4 my-2 w-full justify-center text-gray-700">
         <div class="flex flex-wrap">
-            <EntityCard v-for="entity in entities"
+            <EntityCard v-for="entity in this.$store.state.app.schema.entities"
                 v-bind:key="entity.model"
                 :entity="entity"
-            ></EntityCard>
-            <NewEntityCard></NewEntityCard>            
+            ></EntityCard>            
         </div>
        
     </div>
@@ -14,67 +13,7 @@
 <script>
 export default {
     data() {
-        return {
-            entities: [
-                {
-                    model: 'App\\User',
-                    columns: [
-                        {
-                            name: 'id'
-                        },                        
-                        {
-                            name: 'name'
-                        },
-                        {
-                            name: 'email'
-                        },
-                        {
-                            name: 'created_at'
-                        },
-                        {
-                            name: 'updated_at'
-                        },                                                                        
-                    ],
-                },
-                {
-                    model: 'App\\Car',
-                    columns: [
-                        {
-                            name: 'id'
-                        },                        
-                        {
-                            name: 'brand'
-                        },
-                        {
-                            name: 'color'
-                        },
-                        {
-                            name: 'created_at'
-                        },
-                        {
-                            name: 'updated_at'
-                        },                                                
-                    ],
-                },
-                {
-                    model: 'App\\Garage',
-                    columns: [
-                        {
-                            name: 'id'
-                        },                        
-                        {
-                            name: 'location'
-                        },
-                        {
-                            name: 'created_at'
-                        },
-                        {
-                            name: 'updated_at'
-                        },                        
-                    ],
-                },                                                
-            ]
-        }
+        return {}
     },
     methods: {
         //
