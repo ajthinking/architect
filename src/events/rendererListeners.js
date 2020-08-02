@@ -1,6 +1,11 @@
 const { ipcRenderer } = require('electron')
 import store from '../store/index'
 
+ipcRenderer.on('create-new-project-failed', (event, error) => {
+    alert("COULD NOT LOAD PROJECT");
+    console.log(event, error)   
+})
+
 ipcRenderer.on('current-project-updated', (event, path) => {
     store.commit('setProject', path)
     store.commit('setPage', 'AppSummary')

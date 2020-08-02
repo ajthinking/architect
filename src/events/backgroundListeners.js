@@ -5,7 +5,8 @@ import { dialog } from 'electron'
 
 export default (win) => {
     ipcMain.on('create-new-project', async (event, arg) => {
-        let codeHome = '/missing/path/'
+        console.log("CREATING!")
+        let codeHome = __dirname + '/../../hehe/'
         let name = 'test-project-' + Math.random().toString(36).substring(7); 
       
         exec(
@@ -13,13 +14,17 @@ export default (win) => {
             { cwd: codeHome },
             (error, stdout, stderr) => {
             if (error) {
+                console.log("ERROR!")
                 event.reply('create-new-project-failed', error.message)
                 return;
             }
             if (stderr) {
+                console.log("STDERR!")
                 event.reply('create-new-project-failed', stderr)
                 return;
             }
+
+            console.log("NO ERROR!")
     
             event.reply('current-project-updated', codeHome + name)
     
