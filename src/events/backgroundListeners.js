@@ -1,4 +1,4 @@
-const { ipcMain } = require('electron')
+const { ipcMain, ipcMainEvent } = require('electron')
 const { exec } = require("child_process");
 const storage = require('electron-json-storage');
 import { dialog } from 'electron'
@@ -98,5 +98,11 @@ export default (win) => {
             event.reply('architect-api-request-successful', JSON.parse(stdout))
             return;
         });
+    })
+
+    ipcMain.on('persist-state', (event, state) => {
+        storage.set('statex', state), function(error, data) {
+            if (error) throw error;
+        }
     })
 }
