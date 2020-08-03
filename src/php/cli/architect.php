@@ -84,27 +84,6 @@ try {
     exit;
 }
 
-
-// new Doctrine\DBAL\Driver\PDOSqlite\Driver;
-
-// if(class_exists('Doctrine\\DBAL\\Driver\\PDOSqlite\\Driver')) {
-//     echo json_encode((object) [
-//         'status' => 500,
-//         'message' => 'CLASS EXISTS',
-//         'error' => null,
-//     ]);
-
-//     exit;
-// } else {
-//     echo json_encode((object) [
-//         'status' => 500,
-//         'message' => 'CLASS DOES NOT EXISTS',
-//         'error' => null,
-//     ]);
-
-//     exit;
-// }
-
 /*
 |--------------------------------------------------------------------------
 | Perform Request
