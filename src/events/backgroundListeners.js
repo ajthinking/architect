@@ -39,6 +39,15 @@ export default (win) => {
     
       if(!result.canceled) event.reply('current-project-updated', result.filePaths[0])
     })
+
+    ipcMain.on('set-code-home-browse', async (event, arg) => {
+        console.log("aaaafasfaafs")
+        const result = await dialog.showOpenDialog(win, {
+          properties: ['openDirectory']
+        })
+      
+        if(!result.canceled) event.reply('code-home-updated', result.filePaths[0])
+      })    
     
     ipcMain.on('open-project', async (event, path) => {
         event.reply('current-project-updated', path)

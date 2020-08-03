@@ -54,7 +54,7 @@
                     </div>
                     <div class="w-full lg:w-full md:h-auto mb-4 px-2">
                         <div class="flex w-full h-full bg-gray-700 p-4">
-                            <div @click="sync" class="font-bold text-xs text-gray-200 border px-4 py-2 rounded mx-1">
+                            <div @click="sync" class="transition duration-700 cursor-pointer font-bold text-xs text-gray-200 border px-4 py-2 rounded mx-1">
                                 <span class="text-white-400 mr-2"><i class="fas fa-sync-alt"></i></span>Sync
                             </div>
                             <!--

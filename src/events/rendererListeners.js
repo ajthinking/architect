@@ -6,6 +6,10 @@ ipcRenderer.on('create-new-project-failed', (event, error) => {
     console.log(event, error)   
 })
 
+ipcRenderer.on('code-home-updated', (event, path) => {
+    store.commit('setCodeHome', path)
+})
+
 ipcRenderer.on('current-project-updated', (event, path) => {
     store.commit('setProject', path)
     store.commit('setPage', 'AppSummary')

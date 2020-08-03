@@ -13,6 +13,7 @@
         <div>
             <div :class="buttonStyle()" @click="openExisting" ><i class="fas fa-folder-open"></i></div>
             <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>-->
+            <div :class="buttonStyle()" @click="setPage('Settings')" ><i class="fas fa-cog"></i></div>
         </div>
     </div>
 </template>
