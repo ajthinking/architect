@@ -11,10 +11,16 @@
                 <i class="fas fa-folder-open my-3"></i>
                 <div class="ml-2">Browse existing</div>
             </div>            
-            <div @click="createNew" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
+            <div v-if="!waitingForAppName" @click="waitingForAppName = true" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-plus my-3"></i>
                 <div class="ml-2">New project</div>
             </div>
+            <div v-else class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
+                <i class="fas fa-plus my-3"></i>
+                <div class="ml-2">
+                    <input v-model="newAppName" @keyup.enter="createNew">
+                </div>
+            </div>            
         </div>
         <!--<div class="flex flex-col p-2 w-full border-t text-gray-400 text-sm bg-gray-800">
             <i class="fas fa-cog my-3"></i>
@@ -33,6 +39,8 @@ export default {
         return {
             message: '',
             creating: false,
+            newAppName: null,
+            waitingForAppName: false,
         }
     },
     methods: {
@@ -45,9 +53,9 @@ export default {
             if(!this.$store.state.codeHome) return alert('Please set your Code home directory under settings');
 
             const { ipcRenderer } = require('electron')
-            let name = 'test-project-' + Math.random().toString(36).substring(7); 
+            //let name = e.target.value //'test-project-' + Math.random().toString(36).substring(7); 
 
-            ipcRenderer.send('create-new-project', this.$store.state.codeHome, name)
+            ipcRenderer.send('create-new-project', this.$store.state.codeHome, this.newAppName)
             this.creating = true
         },
         
