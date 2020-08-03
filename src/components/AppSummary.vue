@@ -68,7 +68,7 @@
                 </div>
 
     </div>
-    <div v-else class="flex items-center justify-center text-5xl text-white">
+    <div v-else class="flex items-center justify-center w-full h-full text-5xl text-white">
         <span><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span>
     </div>
 </template>
