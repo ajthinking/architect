@@ -19,8 +19,6 @@ export default (win) => {
                 event.reply('create-new-project-failed', stderr)
                 return;
             }
-
-            console.log("NO ERROR!")
     
             event.reply('current-project-updated', dir + '/' + name)
     
