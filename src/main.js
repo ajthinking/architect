@@ -13,7 +13,6 @@ Vue.directive('tab-group', {
     },
 
     updated: function (el, binding, vnode) {
-        console.log("hey updated");
         let shouldExposeTabIndex = vnode.context.$store.state.tabgroup === binding.value
         if(shouldExposeTabIndex) el.setAttribute('tabindex', '0')
     },
