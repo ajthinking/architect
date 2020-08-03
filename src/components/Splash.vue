@@ -12,13 +12,12 @@
                 <div class="ml-2">Browse existing</div>
             </div>            
             <div v-if="!waitingForAppName" @click="waitingForAppName = true" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
-                <i class="fas fa-plus my-3"></i>
+                <div class="flex items-center"><i class="text-red-500 fas fa-plus my-3"></i></div>
                 <div class="ml-2">New project</div>
             </div>
             <div v-else class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
-                <i class="fas fa-plus my-3"></i>
                 <div class="ml-2">
-                    <input v-model="newAppName" @keyup.enter="createNew">
+                    <input class="text-gray-700 px-2 py-1 text-sm" v-model="newAppName" @keyup.enter="createNew">
                 </div>
             </div>            
         </div>
