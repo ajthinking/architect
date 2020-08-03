@@ -11,10 +11,10 @@
                 <i class="fas fa-folder-open my-3"></i>
                 <div class="ml-2">Browse existing</div>
             </div>            
-            <!--<div @click="createNew" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
+            <div @click="createNew" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-plus my-3"></i>
                 <div class="ml-2">New project</div>
-            </div>-->
+            </div>
         </div>
         <!--<div class="flex flex-col p-2 w-full border-t text-gray-400 text-sm bg-gray-800">
             <i class="fas fa-cog my-3"></i>
@@ -41,11 +41,15 @@ export default {
             ipcRenderer.send('open-project-browse')
         },
 
-        // createNew() {
-        //     const { ipcRenderer } = require('electron')
-        //     ipcRenderer.send('create-new-project')
-        //     this.creating = true
-        // },
+        createNew() {
+            if(!this.$store.state.codeHome) return alert('Please set your Code home directory under settings');
+
+            const { ipcRenderer } = require('electron')
+            let name = 'test-project-' + Math.random().toString(36).substring(7); 
+
+            ipcRenderer.send('create-new-project', this.$store.state.codeHome, name)
+            this.creating = true
+        },
         
         // openRecent(event) {
         //     const { ipcRenderer } = require('electron')

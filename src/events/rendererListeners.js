@@ -10,6 +10,10 @@ ipcRenderer.on('code-home-updated', (event, path) => {
     store.commit('setCodeHome', path)
 })
 
+ipcRenderer.on('plugins-directory-updated', (event, path) => {
+    store.commit('setPluginsDirectory', path)
+})
+
 ipcRenderer.on('current-project-updated', (event, path) => {
     store.commit('setProject', path)
     store.commit('setPage', 'AppSummary')

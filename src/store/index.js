@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         project: null,
+        pluginsDirectory: null,
         codeHome: null,
         page: 'Splash',
         app: null,
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     mutations: {
         setCodeHome(state, path) {
             state.codeHome = path
+        },
+        setPluginsDirectory(state, path) {
+            state.pluginsDirectory = path
         },
         setProject(state, path) {
             state.project = path

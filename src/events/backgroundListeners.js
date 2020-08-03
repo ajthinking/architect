@@ -4,14 +4,10 @@ const storage = require('electron-json-storage');
 import { dialog } from 'electron'
 
 export default (win) => {
-    ipcMain.on('create-new-project', async (event, arg) => {
-        console.log("CREATING!")
-        let codeHome = __dirname + '/../../hehe/'
-        let name = 'test-project-' + Math.random().toString(36).substring(7); 
-      
+    ipcMain.on('create-new-project', async (event, dir, name) => {
         exec(
             'laravel new ' + name,
-            { cwd: codeHome },
+            { cwd: dir },
             (error, stdout, stderr) => {
             if (error) {
                 console.log("ERROR!")
@@ -26,7 +22,7 @@ export default (win) => {
 
             console.log("NO ERROR!")
     
-            event.reply('current-project-updated', codeHome + name)
+            event.reply('current-project-updated', dir + '/' + name)
     
             return;
         });
@@ -41,13 +37,20 @@ export default (win) => {
     })
 
     ipcMain.on('set-code-home-browse', async (event, arg) => {
-        console.log("aaaafasfaafs")
         const result = await dialog.showOpenDialog(win, {
           properties: ['openDirectory']
         })
       
         if(!result.canceled) event.reply('code-home-updated', result.filePaths[0])
-      })    
+      }) 
+      
+      ipcMain.on('set-plugins-directory-browse', async (event, arg) => {
+        const result = await dialog.showOpenDialog(win, {
+          properties: ['openDirectory']
+        })
+      
+        if(!result.canceled) event.reply('plugins-directory-updated', result.filePaths[0])
+      })       
     
     ipcMain.on('open-project', async (event, path) => {
         event.reply('current-project-updated', path)
