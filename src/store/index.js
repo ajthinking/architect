@@ -12,6 +12,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         project: null,
+        //projects: {},
         pluginsDirectory: null,
         codeHome: null,
         page: 'Splash',
@@ -49,6 +50,11 @@ export default new Vuex.Store({
             ipcRenderer.send('persist-state', state)
         },                        
     },
+    // computed: {
+    //     project() {
+    //       return this.$store.state.projects[project]
+    //     }
+    // },
     actions: {
     },
     modules: {
