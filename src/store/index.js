@@ -4,8 +4,13 @@ const { ipcRenderer } = require('electron')
 import VuexPersistence from 'vuex-persist'
 
 const vuexLocal = new VuexPersistence({
-    storage: window.localStorage
-  })
+    storage: window.localStorage,
+    reducer: (state) => {
+        let cleaned = {...state}
+        delete cleaned.page
+        return cleaned
+    }   
+})
 
 Vue.use(Vuex)
 
