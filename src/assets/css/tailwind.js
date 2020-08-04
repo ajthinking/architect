@@ -1,6 +1,8 @@
 // tailwind.config.js
 module.exports = {
     theme: {},
-    variants: {},
+    variants: {
+        backgroundColor: ['odd', 'even'],
+    },
     plugins: [],
   }
