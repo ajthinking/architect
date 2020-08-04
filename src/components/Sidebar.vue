@@ -8,6 +8,7 @@
             <!--<div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>-->
             <!--<div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-grip-vertical"></i></div>-->
             <div :class="buttonStyle()" @click="setPage('AppSchema')" title="schema"><i class="fas fa-project-diagram"></i></div>
+            <div :class="buttonStyle()" @click="setPage('Scripts')" title="scripts"><i class="fas fa-play-circle"></i></div>
             <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plug"></i></div>-->
             <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-wave-square"></i></div>-->
             <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-check"></i></div>-->
