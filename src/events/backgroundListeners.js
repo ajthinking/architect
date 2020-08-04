@@ -27,11 +27,11 @@ export default (win) => {
       })
     
     ipcMain.on('open-project-browse', async (event, arg) => {
-      const result = await dialog.showOpenDialog(win, {
-        properties: ['openDirectory']
-      })
+        const result = await dialog.showOpenDialog(win, {
+            properties: ['openDirectory']
+        })
     
-      if(!result.canceled) event.reply('current-project-updated', result.filePaths[0])
+        if(!result.canceled) event.reply('current-project-updated', result.filePaths[0])
     })
 
     ipcMain.on('set-code-home-browse', async (event, arg) => {
@@ -52,22 +52,6 @@ export default (win) => {
     
     ipcMain.on('open-project', async (event, path) => {
         event.reply('current-project-updated', path)
-    })
-    
-    ipcMain.on('add-recent-project', (event, path) => {
-        storage.get('recent-projects', function(error, data) {
-            if (error) throw error;
-        })    
-        storage.get('recent-projects', function(error, data) {
-            if (error) throw error;
-            data = Array.isArray(data) ? data : []
-            storage.set('recent-projects', [
-                ...data,
-                path
-            ]), function(error, data) {
-                if (error) throw error;
-            }     
-        });
     })
     
     ipcMain.on('architect-api-request', (event, request) => {
