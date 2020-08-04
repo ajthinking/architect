@@ -49,10 +49,5 @@ ipcRenderer.on('architect-api-request-failed', (event, data) => {
     console.log(data);
     // Redirect to splash
     store.commit('setProject', null)
-    store.commit('setPage', 'Splash')    
-})
-
-ipcRenderer.on('recent-projects-loaded', (event, data) => {
-    alert(data);
-    console.log(data);
+    store.commit('setPage', 'Splash')
 })
