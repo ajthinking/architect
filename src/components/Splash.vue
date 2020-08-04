@@ -6,13 +6,13 @@
         <div v-if="creating" class="flex flex-col w-full items-center justify-center mb-12 text-white text-xl">
             <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
         </div>        
-        <div class="flex font-bold text-white mb-6">
+        <div v-else class="flex font-bold text-white mb-6">
             <div @click="openExisting" class="flex items-center px-6 py-2 rounded mx-2 text-lg hover:border hover:bg-gray-700 cursor-pointer">
                 <i class="fas fa-folder-open my-3"></i>
                 <div class="ml-2">Browse existing</div>
             </div>            
             <div v-if="!waitingForAppName" @click="waitingForAppName = true" class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">
-                <div class="flex items-center"><i class="text-red-500 fas fa-plus my-3"></i></div>
+                <div class="flex items-center"><i class="fas fa-plus my-3"></i></div>
                 <div class="ml-2">New project</div>
             </div>
             <div v-else class="flex items-center px-6 py-2 rounded mx-2 text-lg  hover:border hover:bg-gray-700 cursor-pointer">

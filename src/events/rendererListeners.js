@@ -6,11 +6,6 @@ ipcRenderer.on('create-new-project-failed', (event, error) => {
     console.log(event, error)   
 })
 
-ipcRenderer.on('state-ready', (event, state) => {
-    alert("HEY STATE IS READY")
-    console.log(event, state)
-})
-
 ipcRenderer.on('code-home-updated', (event, path) => {
     store.commit('setCodeHome', path)
 })
