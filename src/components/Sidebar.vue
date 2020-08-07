@@ -4,19 +4,10 @@
             <div :class="buttonStyle()" @click="setPage('Splash')" title="home"><i class="fas fa-home"></i></div>
         </div>
         <div v-if="this.$store.state.app">
-            <!--<div :class="buttonStyle()" @click="setPage('AppSummary')" title="app"><i class="fas fa-rocket"></i></div>-->
-            <!--<div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>-->
-            <!--<div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-grip-vertical"></i></div>-->
             <div :class="buttonStyle()" @click="setPage('AppSchema')" title="schema"><i class="fas fa-project-diagram"></i></div>
             <div :class="buttonStyle()" @click="setPage('Scripts')" title="scripts"><i class="fas fa-play-circle"></i></div>
-            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plug"></i></div>-->
-            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-wave-square"></i></div>-->
-            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-check"></i></div>-->
         </div>
-
         <div>
-            <!--<div :class="buttonStyle()" @click="openExisting" ><i class="fas fa-folder-open"></i></div>-->
-            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>-->
             <div :class="buttonStyle()" @click="setPage('Settings')" title="settings"><i class="fas fa-cog"></i></div>
         </div>
     </div>
@@ -50,13 +41,25 @@ export default {
 </script>
 
 
+
+
 <!--
         SYMBOLS
+
+            <!--<div :class="buttonStyle()" @click="setPage('AppSummary')" title="app"><i class="fas fa-rocket"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-grip-vertical"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plug"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-wave-square"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-check"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="openExisting" ><i class="fas fa-folder-open"></i></div>-->
+            <!--<div :class="buttonStyle()" @click="create" ><i class="fas fa-plus"></i></div>-->
+<!--
         <i class="fas fa-columns></i>
         <i class="fas fa-code-branch></i>
         <i class="fas fa-sync></i>
         <i class="far fa-comment></i>
         <i class="fas fa-wrench></i>
-        <i class="fab fa-twitter></i>-->
+        <i class="fab fa-twitter></i>
 
 -->
