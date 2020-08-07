@@ -4,7 +4,7 @@
             <div :class="buttonStyle()" @click="setPage('Splash')" title="home"><i class="fas fa-home"></i></div>
         </div>
         <div v-if="this.$store.state.app">
-            <div :class="buttonStyle()" @click="setPage('AppSummary')" title="app"><i class="fas fa-rocket"></i></div>
+            <!--<div :class="buttonStyle()" @click="setPage('AppSummary')" title="app"><i class="fas fa-rocket"></i></div>-->
             <!--<div :class="buttonStyle()" @click="refresh" ><i class="fas fa-sync-alt"></i></div>-->
             <!--<div :class="buttonStyle()" @click="setPage('AppSchema')" ><i class="fas fa-grip-vertical"></i></div>-->
             <div :class="buttonStyle()" @click="setPage('AppSchema')" title="schema"><i class="fas fa-project-diagram"></i></div>

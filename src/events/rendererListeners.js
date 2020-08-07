@@ -16,7 +16,7 @@ ipcRenderer.on('plugins-directory-updated', (event, path) => {
 
 ipcRenderer.on('current-project-updated', (event, path) => {
     store.commit('setProject', path)
-    store.commit('setPage', 'AppSummary')
+    store.commit('setPage', 'Splash')
     
     ipcRenderer.send('architect-api-request', {
         target: path,

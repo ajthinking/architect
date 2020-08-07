@@ -1,5 +1,6 @@
 <template>
     <div class="flex flex-col items-center justify-center mx-auto max-w-md w-full min-h-full">
+        <app-summary></app-summary>
         <div v-if="message" class="flex flex-col w-full items-center justify-center mb-12">
             <div class="text-white text-2xl ">I could not bootstrap that 😥</div>
         </div>
